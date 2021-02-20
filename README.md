@@ -17,7 +17,8 @@ we want to find where all the request will end up from [Services Types](https://
 </br>
 </br>
 Question:
-* Does each Services has Endpoint Object?
+* Does each Services has Endpoint Object? 
+</br>
 TODO:
 * Watch [Google Open Source Live presents Kubernetes (R) | Full Event](https://www.youtube.com/watch?v=60fnBk14ifc) to understand how API call works
 * Figure out how printer codes work
