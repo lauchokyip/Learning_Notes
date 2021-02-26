@@ -1,13 +1,4 @@
-# Adding k8s endpoint
-Tracking progress of me adding **Endpoint** to `kubectl`
-
-### Goal
-Adding Endpoint to `kubectl`
-```
-$ kubectl get service
-NAME   TYPE       CLUSTER-IP    EXTERNAL-IP   PORT(S)          Endpoint(S)    AGE
-web    NodePort   10.108.X.X    <none>        8080:32170/TCP   2              8s
-```
+# Kubernetes API Notes
 
 ### Day 1
 Learning what [Kubernetes services](https://kubernetes.io/docs/concepts/services-networking/service/#motivation) is </br>
@@ -35,6 +26,3 @@ kubectl makes HTTP POST request to kube-api-server and kube-api-server returns w
 ### To be continued...
 
 
-TODO:
-* Watch [Google Open Source Live presents Kubernetes (R) | Full Event](https://www.youtube.com/watch?v=60fnBk14ifc) to understand how API call works
-* Figure out how printer codes work
