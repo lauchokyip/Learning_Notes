@@ -1,4 +1,4 @@
-# Kubernetes API Notes
+# Kubectl to API server note
 
 ### Day 1
 Learning what [Kubernetes services](https://kubernetes.io/docs/concepts/services-networking/service/#motivation) is </br>
@@ -23,6 +23,6 @@ kubectl makes HTTP POST request to kube-api-server and kube-api-server returns w
 * Before sending any requests, we would need to [build a new **Request**](https://github.com/kubernetes/kubernetes/blob/7cea81ce34c4aa7d0e952d7f9957db254e3fbc83/staging/src/k8s.io/client-go/rest/client.go#L170) that can be send across the wire and understood by the API server and must be [serialized](https://github.com/kubernetes/kubernetes/blob/d88d9ac3b4eff86de439d65558a918a4d5fe962d/staging/src/k8s.io/client-go/rest/request.go#L453). [Here](https://github.com/kubernetes/kubernetes/blob/d88d9ac3b4eff86de439d65558a918a4d5fe962d/staging/src/k8s.io/client-go/rest/request.go#L425) we will fill out the **Request** using string, []byte, io.Reader and runtime.Object. The last step will be to send the HTTP request which will be done [here](https://github.com/kubernetes/kubernetes/blob/d88d9ac3b4eff86de439d65558a918a4d5fe962d/staging/src/k8s.io/client-go/rest/request.go#L978).
 * Now, let's look at how seriliazation work. [Here](https://github.com/kubernetes/kubernetes/blob/d88d9ac3b4eff86de439d65558a918a4d5fe962d/staging/src/k8s.io/apimachinery/pkg/runtime/interfaces.go#L86) is where Serializer Object sits at.
 
-### To be continued...
+### Day 3
 
 
