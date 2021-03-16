@@ -1,5 +1,5 @@
 # Kubectl to API server note
-![API lifecycle](APIlifecycle.png)
+![API lifecycle](APlifecycle.png)
 ### Day 1
 Learning what [Kubernetes services](https://kubernetes.io/docs/concepts/services-networking/service/#motivation) is </br>
 This [video](https://www.youtube.com/watch?v=T4Z7visMM4E) from Nana is pretty useful. </br>
