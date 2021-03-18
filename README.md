@@ -43,11 +43,23 @@ that perform an action on the object being handled by the API server
 </br>
 
 ## Storage to etcd
+**Storage Interfaces**
 * the [request handler method](https://github.com/kubernetes/apiserver/blob/9d40532d03090665a34854f9724a34b8195640e5/pkg/endpoints/handlers/create.go#L50) calls a [create Method](https://github.com/kubernetes/apiserver/blob/9d40532d03090665a34854f9724a34b8195640e5/pkg/endpoints/handlers/create.go#L150) on a [NamedCreater interface](https://github.com/kubernetes/apiserver/blob/9d40532d03090665a34854f9724a34b8195640e5/pkg/registry/rest/rest.go#L183) to persist the Kubernetes object to etcd. [NamedCreater interface](https://github.com/kubernetes/apiserver/blob/9d40532d03090665a34854f9724a34b8195640e5/pkg/registry/rest/rest.go#L183) are interfaces that map to the corresponding HTTP create method. There exist interfaces for each of the restful verbs, such as get watch, create, delete, update that act on a single item as well as seperate set of interfaces for each of these verbs that act on a collection of items.
-* 
-.
-References: </br>
-</br>
+* There is a built in implementation called the [Store](https://github.com/kubernetes/apiserver/blob/9d40532d03090665a34854f9724a34b8195640e5/pkg/registry/generic/registry/store.go#L94) that in addition to holding the actual etcd client to fire off etcd transactions takes in a [strategy](https://github.com/kubernetes/apiserver/blob/9d40532d03090665a34854f9724a34b8195640e5/pkg/registry/generic/registry/store.go#L164) for each tpe of REST action on the specific Resources that are being operated on. 
+* [Here](https://github.com/kubernetes/apiserver/blob/9d40532d03090665a34854f9724a34b8195640e5/pkg/registry/generic/registry/store.go#L362) is where the store implements create. It utlizes [CreateStrategy](https://github.com/kubernetes/apiserver/blob/9d40532d03090665a34854f9724a34b8195640e5/pkg/registry/generic/registry/store.go#L376) prior to executing the transaction. It then generates the [etcd key](https://github.com/kubernetes/apiserver/blob/9d40532d03090665a34854f9724a34b8195640e5/pkg/registry/generic/registry/store.go#L391) and calling [Create](https://github.com/kubernetes/apiserver/blob/9d40532d03090665a34854f9724a34b8195640e5/pkg/registry/generic/registry/store.go#L401) to write the Object on etcd. [AfterCreate](https://github.com/kubernetes/apiserver/blob/9d40532d03090665a34854f9724a34b8195640e5/pkg/registry/generic/registry/store.go#L427) on the object that has just been persisted. </br>
+
+**Create Stragegy**
+* In general, a REST create strategy must implement [this](https://github.com/kubernetes/apiserver/blob/9d40532d03090665a34854f9724a34b8195640e5/pkg/registry/rest/create.go#L39) interface.
+* If we look at ReplicateSet Object, we can see it implements [these method](https://github.com/kubernetes/kubernetes/blob/e9632d93f7a100a2d0353d023523486c7513d15d/pkg/registry/apps/replicaset/strategy.go#L90-L126) 
+* Taking a brief step back, during the API server setup, GenericAPIServer is wrapped in something called [control plane install](https://github.com/kubernetes/kubernetes/blob/e9632d93f7a100a2d0353d023523486c7513d15d/pkg/controlplane/instance.go#L245). This instance has an [InstallAPI](https://github.com/kubernetes/kubernetes/blob/e9632d93f7a100a2d0353d023523486c7513d15d/pkg/controlplane/instance.go#L574) on it which will wire together all the REST storage providers for eveery API group, such as autoscaling batch, and apps group which is where the ReplicaSet storage provider lives.This is where we configure the storage options and the ReplicaSEt strategy.</br>
+
+**etcd client to store to etcd**
+* Once again, we will use a codec from api machinery runtime package to [encode](https://github.com/kubernetes/kubernetes/blob/e9632d93f7a100a2d0353d023523486c7513d15d/staging/src/k8s.io/apiserver/pkg/storage/etcd3/store.go#L150). Noticed that it's different from the API server because it writes all objects to storage as a different version into a single version. This enables more control over storage format upgrades and lets you roll back and roll forward versions. Finally, it will execute the [transmission](https://github.com/kubernetes/kubernetes/blob/e9632d93f7a100a2d0353d023523486c7513d15d/staging/src/k8s.io/apiserver/pkg/storage/etcd3/store.go#L167) and send the objects into the etcd3
+
+
+### Interesting Question came out while learning
+* [Kubernetes Objects vs Resources](https://stackoverflow.com/questions/52309496/difference-between-kubernetes-objects-and-resources)
+### References: 
 [Google Open Source Live presents Kubernetes (R) | Full Event](https://www.youtube.com/watch?v=60fnBk14ifc) <br>
 
 
