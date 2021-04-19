@@ -31,8 +31,10 @@ of resources and different API sets.
 			return nil, err
 		}
  ```
+ 
  5)Create PodMetricsList from ` &metricsapi.PodMetricsList{}`</br>
- 6)Convert v1beta1 PodMetricsList to metrics PodMetricsList
+ 
+ Summary : Basically create PodMetricsList from `v1beta1api` and convert it to `metrics` PodMetricsList
  </br>
  
 if Metrics API version is available then get Metrics From Metrics API
