@@ -37,13 +37,5 @@ of resources and different API sets.
  
 if Metrics API version is available then get Metrics From Metrics API
 
-
-
-### Get Metrics From Metrics API execution
-<ol>
-<li>what is metav1.NamespaceAll?</li>
- <li> Create a PodMetricsList </li>
-</ol> 
-
 ### Question
 How does builder work?
