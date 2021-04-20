@@ -16,7 +16,8 @@ of resources and different API sets.
 
 1) call `metav1.NamespaceAll` </br>
 2) Create PodMetricsList from ` &metricsv1beta1api.PodMetricsList{}`</br>
-3) if there is no resourceName is provided, then 
+3) if there is no resourceName is provided, for example `kubectl top pod nginx-deployment-bdb48231-123zsdk` , `nginx-deployment-bdb48231-123zsdk` will be the resourceName
+then 
  ```
  m, err := metricsClient.MetricsV1beta1().PodMetricses(ns).Get(context.TODO(), resourceName, metav1.GetOptions{})
 		if err != nil {
@@ -37,7 +38,7 @@ of resources and different API sets.
  Summary : Basically create PodMetricsList from `v1beta1api` and convert it to `metrics` PodMetricsList
  </br>
  
-if Metrics API version is available then get Metrics From Metrics API
+### 
 
 ### Question
 How does builder work?
