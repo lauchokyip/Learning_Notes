@@ -38,7 +38,25 @@ then
  Summary : Basically create PodMetricsList from `v1beta1api` and convert it to `metrics` PodMetricsList
  </br>
  
-### 
+### Builder
+Usually looks like that 
+```
+r := f.NewBuilder().
+		Unstructured().
+		NamespaceParam(o.Namespace).DefaultNamespace().AllNamespaces(o.AllNamespaces).
+		FilenameParam(o.ExplicitNamespace, &o.FilenameOptions).
+		LabelSelectorParam(o.LabelSelector).
+		FieldSelectorParam(o.FieldSelector).
+		RequestChunksOf(chunkSize).
+		ResourceTypeOrNameArgs(true, args...).
+		ContinueOnError().
+		Latest().
+		Flatten().
+		TransformRequests(o.transformRequests).
+		Do()
+```
+
+[`NewBuilder()`](https://github.com/kubernetes/kubectl/blob/ac49920c0ccb0dd0899d5300fc43713ee2dfcdc9/pkg/cmd/testing/fake.go#L526) will build a new Builder and the rest of the function will be modifying the [Builder](https://github.com/kubernetes/kubernetes/blob/6a7572e4adaa209e09744092a9ac052f31fbeb9f/staging/src/k8s.io/cli-runtime/pkg/resource/builder.go#L52) struct
 
 ### Question
 How does builder work?
