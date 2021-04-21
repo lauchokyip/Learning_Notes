@@ -39,7 +39,7 @@ then
  </br>
  
 ### Builder
-Usually looks like that 
+Usually looks like that, here I will use `kubectl get` as an example
 ```
 r := f.NewBuilder().
 		Unstructured().
@@ -56,7 +56,8 @@ r := f.NewBuilder().
 		Do()
 ```
 
-[`NewBuilder()`](https://github.com/kubernetes/kubectl/blob/ac49920c0ccb0dd0899d5300fc43713ee2dfcdc9/pkg/cmd/testing/fake.go#L526) will build a new Builder and the rest of the function will be modifying the [Builder](https://github.com/kubernetes/kubernetes/blob/6a7572e4adaa209e09744092a9ac052f31fbeb9f/staging/src/k8s.io/cli-runtime/pkg/resource/builder.go#L52) struct
+1) [`NewBuilder()`](https://github.com/kubernetes/kubectl/blob/ac49920c0ccb0dd0899d5300fc43713ee2dfcdc9/pkg/cmd/testing/fake.go#L526) will build a new Builder and the rest of the function will be modifying the [Builder](https://github.com/kubernetes/kubernetes/blob/6a7572e4adaa209e09744092a9ac052f31fbeb9f/staging/src/k8s.io/cli-runtime/pkg/resource/builder.go#L52) 
+2) [`Do()`](https://github.com/kubernetes/cli-runtime/blob/3cc3835b3ec298e5a3a277b03f7a133f156a45d9/pkg/resource/builder.go#L1109) will build the visitor which will be called to visit later. inside `Do()` [`visitorResult()`](https://github.com/kubernetes/cli-runtime/blob/3cc3835b3ec298e5a3a277b03f7a133f156a45d9/pkg/resource/builder.go#L1111) will be called to determine how do we want to visit the items whether by [path](https://github.com/kubernetes/cli-runtime/blob/3cc3835b3ec298e5a3a277b03f7a133f156a45d9/pkg/resource/builder.go#L817), by [selector](https://github.com/kubernetes/cli-runtime/blob/3cc3835b3ec298e5a3a277b03f7a133f156a45d9/pkg/resource/builder.go#L821), [resourcetuples](https://github.com/kubernetes/cli-runtime/blob/3cc3835b3ec298e5a3a277b03f7a133f156a45d9/pkg/resource/builder.go#L827),  [names](https://github.com/kubernetes/cli-runtime/blob/3cc3835b3ec298e5a3a277b03f7a133f156a45d9/pkg/resource/builder.go#L832), or by [resources](https://github.com/kubernetes/cli-runtime/blob/3cc3835b3ec298e5a3a277b03f7a133f156a45d9/pkg/resource/builder.go#L835) 
 
 ### Question
-How does builder work?
+when calling `kubectl get pods` why do we have to call 
