@@ -13,15 +13,15 @@ stateful applicatoin components, ***CronJobs*** are for short-lived tasks that n
   1) Master (the brain of Kubernetes)
   * API server (All communication between every components must go through API server)
   * Storage (usually persistent storage (etcd) is used, consistency over availability)
-  * The controller manager (implements all of the background control loops that monitor the cluster and respond to events. It's ***controller of controllers***. It constantly watching the API Server for changes. It first Obtain the desired state, Observe the current state, Determine differences and Reconcile differences)
   * The scheduler (watches the API server for new work tasks and assigns them to appropriate healthy nodes)
+  * The controller manager (implements all of the background control loops that monitor the cluster and respond to events. It's ***controller of controllers***. It constantly watching the API Server for changes. It first Obtain the desired state, Observe the current state, Determine differences and Reconcile differences)
   * The cloud controller manager (manage integrations with underlying cloud technologies and services such as, instances, load-balancers, and storage)
   2) Nodes (workers of Kubernetes cluster, it watches API server for new work assignments, execute new work assignments and report back to the control plane)
   * Kubelet (It will be installed in every node. It will then responsible for resgitering the node with the cluster. It will also watch the API server for new work assignments. )
   * Container runtime
   * Kube-proxy (responsible for local cluster networking. For example, it makes sure each node gets its own unique IP address, and implements local IPTABLES or IPVS rules to handle routing and load-balancing of traffic on the Pod network.)
-
-
+* every Kubernetes cluster has an internal **DNS service**. The DNS service has a static IP address that is hard-coded into every Pod on the cluster, meaning all containers and Pods know ohw to find it.
+* Every new service is automatically reigstered with the cluster's DNS so that all components in the cluster can find every Service by name.
 
 ### References
 [The Kubernetes Book](https://www.amazon.com/Kubernetes-Book-Version-November-2018-ebook/dp/B072TS9ZQZ/ref=sr_1_5?dchild=1&keywords=kubernetes&qid=1621828785&sr=8-5)
