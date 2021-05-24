@@ -1,3 +1,1 @@
-# Kubernetes Notes
-
-[kubectl](kubectl)
+# My Learning Notes
