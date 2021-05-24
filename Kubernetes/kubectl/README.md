@@ -10,13 +10,13 @@
 stateful applicatoin components, ***CronJobs*** are for short-lived tasks that need t orun at set times
 * Kubernetes **cluster** is made of ***control plane/master*** and ***nodes***.
 * Basic Kubernetes Componenents:
-  1) Master
+  1) Master (the brain of Kubernetes)
   * API server (All communication between every components must go through API server)
   * Storage (usually persistent storage (etcd) is used, consistency over availability)
   * The controller manager (implements all of the background control loops that monitor the cluster and respond to events. It's ***controller of controllers***. It constantly watching the API Server for changes. It first Obtain the desired state, Observe the current state, Determine differences and Reconcile differences)
-  * The scheduler
-  * The cloud controller manager
-  2) Nodes
-  * Kubelet
+  * The scheduler (watches the API server for new work tasks and assigns them to appropriate healthy nodes)
+  * The cloud controller manager (manage integrations with underlying cloud technologies and services such as, instances, load-balancers, and storage)
+  2) Nodes (workers of Kubernetes cluster, it watches API server for new work assignments, execute new work assignments and report back to the control plane)
+  * Kubelet (It will be installed in every node. It will then responsible for resgitering the node with the cluster. It will also watch the API server for new work assignments. )
   * Container runtime
-  * Kube-proxu
+  * Kube-proxy (responsible for local cluster networking. For example, it makes sure each node gets its own unique IP address, and implements local IPTABLES or IPVS rules to handle routing and load-balancing of traffic on the Pod network.)
