@@ -22,6 +22,7 @@ stateful applicatoin components, ***CronJobs*** are for short-lived tasks that n
   * Kube-proxy (responsible for local cluster networking. For example, it makes sure each node gets its own unique IP address, and implements local IPTABLES or IPVS rules to handle routing and load-balancing of traffic on the Pod network.)
 * every Kubernetes cluster has an internal **DNS service**. The DNS service has a static IP address that is hard-coded into every Pod on the cluster, meaning all containers and Pods know ohw to find it.
 * Every new service is automatically reigstered with the cluster's DNS so that all components in the cluster can find every Service by name.
+* A **Pod** is a sandbox for hosting containers. Containers in a pod share the same ***namespace, memory, volumes, network stack and more***. That also means containers in the same Pod will share the same IP address.
 
 ### References
 [The Kubernetes Book](https://www.amazon.com/Kubernetes-Book-Version-November-2018-ebook/dp/B072TS9ZQZ/ref=sr_1_5?dchild=1&keywords=kubernetes&qid=1621828785&sr=8-5)
