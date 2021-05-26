@@ -13,7 +13,7 @@ stateful applicatoin components, ***CronJobs*** are for short-lived tasks that n
   1) Master (the brain of Kubernetes)
   * API server (All communication between every components must go through API server)
   * Storage (usually persistent storage (etcd) is used, consistency over availability)
-  * The scheduler (watches the API server for new work tasks and assigns them to appropriate healthy nodes)
+  * The scheduler (watches the API server for new work tasks and assigns them to appropriate healthy nodes. The scheduler isn't responsible for running tasks, just picking the nodes a task will run on)
   * The controller manager (implements all of the background control loops that monitor the cluster and respond to events. It's ***controller of controllers***. It constantly watching the API Server for changes. It first Obtain the desired state, Observe the current state, Determine differences and Reconcile differences)
   * The cloud controller manager (manage integrations with underlying cloud technologies and services such as, instances, load-balancers, and storage)
   2) Nodes (workers of Kubernetes cluster, it watches API server for new work assignments, execute new work assignments and report back to the control plane)
@@ -25,6 +25,8 @@ stateful applicatoin components, ***CronJobs*** are for short-lived tasks that n
 * A **Pod** is a sandbox for hosting containers. Containers in a pod share the same ***namespace, memory, volumes, network stack and more***. That also means containers in the same Pod will share the same IP address.
 * Every time a **Pod** is restarted , it will be assigned with new ID and IP address.
 * **Deployments** is a higher level controller that has features such as ***scaling, zero-downtime updates m and versioned rollbacks***. Behind the scene, it implements a controller and a watch loop that is contanstly observing the cluster making sure that current state matches desired state.
+* **Service** provides reliable networking for a set of Pods. It has stable DNS name, IP address, and port. It's a stable network abstraction point thta provdies TCP and UDP load-balancing across a dynamic set of Pods.
+* **Service** uses label selector to know which set of Pods to load-balance traffic to. 
 
 ### References
 [The Kubernetes Book](https://www.amazon.com/Kubernetes-Book-Version-November-2018-ebook/dp/B072TS9ZQZ/ref=sr_1_5?dchild=1&keywords=kubernetes&qid=1621828785&sr=8-5)
