@@ -23,6 +23,8 @@ stateful applicatoin components, ***CronJobs*** are for short-lived tasks that n
 * every Kubernetes cluster has an internal **DNS service**. The DNS service has a static IP address that is hard-coded into every Pod on the cluster, meaning all containers and Pods know ohw to find it.
 * Every new service is automatically reigstered with the cluster's DNS so that all components in the cluster can find every Service by name.
 * A **Pod** is a sandbox for hosting containers. Containers in a pod share the same ***namespace, memory, volumes, network stack and more***. That also means containers in the same Pod will share the same IP address.
+* Every time a **Pod** is restarted , it will be assigned with new ID and IP address.
+* **Deployments** is a higher level controller that has features such as ***scaling, zero-downtime updates m and versioned rollbacks***. Behind the scene, it implements a controller and a watch loop that is contanstly observing the cluster making sure that current state matches desired state.
 
 ### References
 [The Kubernetes Book](https://www.amazon.com/Kubernetes-Book-Version-November-2018-ebook/dp/B072TS9ZQZ/ref=sr_1_5?dchild=1&keywords=kubernetes&qid=1621828785&sr=8-5)
