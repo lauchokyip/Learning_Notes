@@ -26,13 +26,12 @@ arkade install kubectl
 ```
 5) To setup the master node, we need to know the ip address of the master node. After getting the ip address, from your computer we can do 
 ```
-k3sup install --ip MASTER_IP  --user pi
+k3sup install --ip MASTER_IP  --user pi --k3s-channel stable
 ```
 **Make sure you have your ssh key copied to raspberry pi by doing `ssh-copy-id`** </br>
-**I also tried using the stable version from the flag `k3s-channel stable` but no luck.....** </br>
 6) To add the worker node, do
 ```
-k3sup install --ip MASTER_IP  --user pi
+k3sup install --ip MASTER_IP  --user pi --k3s-channel stable
 ```
 7) When installing the master node, `k3sup` will output the instructions on how to configure the `kubectl`. I found it annoying having to not be able to just "switch the clusters" so I opened the `kubeconfig`
 file and copied that file to `.kube/config`. Adding the `user`, `cluster`, and `context` value (I changed from `default` to `k3s-rpi`) to the `.kube/config` file does the work
@@ -43,14 +42,15 @@ kubectl config use-context k3s-rpi
 9) That's it, I have my Raspberry Pi Kubernetes Clusters running now
 ```
 lau@debian:~ $ kubectl get nodes
-NAME                STATUS     ROLES                  AGE     VERSION
-raspberrypimaster   Ready      control-plane,master   12h     v1.19.11+k3s1
-raspberrypichild0   Ready      <none>                 12h     v1.19.11+k3s1
+NAME      STATUS   ROLES                  AGE     VERSION
+knode0    Ready    <none>                 5m32s   v1.21.1+k3s1
+kmaster   Ready    control-plane,master   16m     v1.21.1+k3s1
+
 
 ```
 ```
 lau@debian:~ $ kubectl top node
-NAME                CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%     
-raspberrypichild0   120m         3%     558Mi           14%         
-raspberrypimaster   526m         13%    967Mi           25% 
+NAME      CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+kmaster   479m         11%    786Mi           20%       
+knode0    218m         5%     298Mi           7%
 ```
