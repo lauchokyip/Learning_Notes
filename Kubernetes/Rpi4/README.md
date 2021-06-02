@@ -49,6 +49,7 @@ raspberrypichild0   Ready      <none>                 12h     v1.19.11+k3s1
 
 ```
 ```
+lau@debian:~ $ kubectl top node
 NAME                CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%     
 raspberrypichild0   120m         3%     558Mi           14%         
 raspberrypimaster   526m         13%    967Mi           25% 
