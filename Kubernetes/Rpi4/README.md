@@ -28,8 +28,8 @@ arkade install kubectl
 ```
 k3sup install --ip MASTER_IP  --user pi
 ```
-** Make sure you have your ssh key copied to raspberry pi by doing `ssh-copy-id`**
-** I tried using the stable version from the flag `k3s-channel stable` but no luck.....
+**Make sure you have your ssh key copied to raspberry pi by doing `ssh-copy-id`** </br>
+**I also tried using the stable version from the flag `k3s-channel stable` but no luck.....**
 6) To add the worker node, do
 ```
 k3sup install --ip MASTER_IP  --user pi
