@@ -54,4 +54,5 @@ NAME      CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%
 kmaster   479m         11%    786Mi           20%       
 knode0    218m         5%     298Mi           7%
 ```
-10) Everytime I rebooted the child node won't be ready so from this [comment](https://github.com/k3s-io/k3s/issues/1019#issuecomment-800333295) I have to reboot k3s server again
+## Weird stuff
+Everytime I rebooted the child node won't be ready so from this [comment](https://github.com/k3s-io/k3s/issues/1019#issuecomment-800333295) I have to reboot k3s server again
