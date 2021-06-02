@@ -1,4 +1,4 @@
-## Kubernetes on Raspberry Pi 4
+## Kubernetes (K3S) on Raspberry Pi 4
 
 ![my first setup](IMG_20210601_091709.jpg )
 
