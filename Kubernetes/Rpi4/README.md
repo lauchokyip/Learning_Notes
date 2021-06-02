@@ -24,22 +24,29 @@ hostnamectl set-hostname NAME
 ```
 arkade install kubectl
 ```
-5) To setup the master node, we need to know the ip address of the master node. After getting the ip address, from your computer we can do 
+5) From [here](https://github.com/k3s-io/k3s/issues/3389), I know IPv6 is not supported for Flannel so I had to disable IPv6 by adding these commands to `/etc/sysctl.conf`
+``` 
+net.ipv6.conf.all.disable_ipv6=1
+net.ipv6.conf.default.disable_ipv6=1
+net.ipv6.conf.lo.disable_ipv6=1
+net.ipv6.conf.eth0.disable_ipv6 = 1
+```
+6) To setup the master node, we need to know the ip address of the master node. After getting the ip address, from your computer we can do 
 ```
 k3sup install --ip MASTER_IP  --user pi --k3s-channel stable
 ```
 **Make sure you have your ssh key copied to raspberry pi by doing `ssh-copy-id`** </br>
-6) To add the worker node, do
+7) To add the worker node, do
 ```
 k3sup install --ip MASTER_IP  --user pi --k3s-channel stable
 ```
-7) When installing the master node, `k3sup` will output the instructions on how to configure the `kubectl`. I found it annoying having to not be able to just "switch the clusters" so I opened the `kubeconfig`
+8) When installing the master node, `k3sup` will output the instructions on how to configure the `kubectl`. I found it annoying having to not be able to just "switch the clusters" so I opened the `kubeconfig`
 file and copied that file to `.kube/config`. Adding the `user`, `cluster`, and `context` value (I changed from `default` to `k3s-rpi`) to the `.kube/config` file does the work
-8) Last but not least, I changed the `context` from `kubectl` by doing 
+9) Last but not least, I changed the `context` from `kubectl` by doing 
 ```
 kubectl config use-context k3s-rpi
 ```
-9) That's it, I have my Raspberry Pi Kubernetes Clusters running now
+10) That's it, I have my Raspberry Pi Kubernetes Clusters running now
 ```
 lau@debian:~ $ kubectl get nodes
 NAME      STATUS   ROLES                  AGE     VERSION
@@ -54,5 +61,4 @@ NAME      CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%
 kmaster   479m         11%    786Mi           20%       
 knode0    218m         5%     298Mi           7%
 ```
-## Weird stuff
-Everytime I rebooted the child node won't be ready so from this [comment](https://github.com/k3s-io/k3s/issues/1019#issuecomment-800333295) I have to reboot k3s server again
+
