@@ -27,6 +27,11 @@ stateful applicatoin components, ***CronJobs*** are for short-lived tasks that n
 * **Deployments** is a higher level controller that has features such as ***scaling, zero-downtime updates m and versioned rollbacks***. Behind the scene, it implements a controller and a watch loop that is contanstly observing the cluster making sure that current state matches desired state.
 * **Service** provides reliable networking for a set of Pods. It has stable DNS name, IP address, and port. It's a stable network abstraction point thta provdies TCP and UDP load-balancing across a dynamic set of Pods.
 * **Service** uses label selector to know which set of Pods to load-balance traffic to. 
-
+* `kudeadm` is used to create a node and connect different node together
+* `kubectl config` contains definitions for:
+  * Clusters (a list of clusters that `kubectl` knows about)
+  * Users (define different users that might have different levels of permissions on each cluster)
+  * Contexts (bring together clusters and users under a friendly name. For example **Context** = deploy-prod, **User** = deploy, **Cluster** = prod)
+* **Pod** is a special type of container called a **pause container**. It's a collection of system resources that containers running inside of it will inherit and share
 ### References
 [The Kubernetes Book](https://www.amazon.com/Kubernetes-Book-Version-November-2018-ebook/dp/B072TS9ZQZ/ref=sr_1_5?dchild=1&keywords=kubernetes&qid=1621828785&sr=8-5)
