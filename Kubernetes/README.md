@@ -33,7 +33,8 @@ stateful applicatoin components, ***CronJobs*** are for short-lived tasks that n
   * Users (define different users that might have different levels of permissions on each cluster)
   * Contexts (bring together clusters and users under a friendly name. For example **Context** = deploy-prod, **User** = deploy, **Cluster** = prod)
 * **Pod** is a special type of container called a **pause container**. It's a collection of system resources that containers running inside of it will inherit and share
-* Kubernetes does not provide any default network implementation, rather it only defines the model and leaves to other tools to implement it. 
+* **Kubernetes does not provide any default network implementation, rather it only defines the model and leaves to other tools to implement it. **
+* 
 ### References
 [The Kubernetes Book](https://www.amazon.com/Kubernetes-Book-Version-November-2018-ebook/dp/B072TS9ZQZ/ref=sr_1_5?dchild=1&keywords=kubernetes&qid=1621828785&sr=8-5)
 [Kubernetes: Flannel network](https://blog.laputa.io/kubernetes-flannel-networking-6a1cb1f8ec7c)
