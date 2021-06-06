@@ -36,6 +36,19 @@ stateful applicatoin components, ***CronJobs*** are for short-lived tasks that n
 * **Kubernetes does not provide any default network implementation, rather it only defines the model and leaves to other tools to implement it.**
 * **Deployment** provides self-healing, scalability and zero-downtime rolling-updates. It uses **ReplicaSets** to achieve that behind the scene. **A Deployment can only manage one Pod Template**
 * To achieve the desire state, ReplicaSets uses **reconciliation loops (aka control loops)** to constantly watching the pod.
+* **Service** has stable IP address, port, DNS and it also acts like a load balancer.
+* Each Service that is created, automatically get associated with **Endpoints** object. **Endpoints** object is a dynamic list of all of the healthy Pods on the cluster that mtach the Service's label selector
+* There are three types of Service
+  1) **ClusterIP** gives the Service a stable IP address internally within the cluster.
+It will not make the Service available outside of the cluster.
+  2) **NodePort** builds on top of ClusterIP and adds a cluster-wide TCP or UDP port. It makes the Service
+available outside of the cluster on a stable port.
+  3) **LoadBalancer** builds on top of NodePort and integrates with cloud-based load-balancers.
+  4) **External Name** used to direct traffic to services that exist outside of the Kubernetes cluster.
+* 1) **Pod** exposes the Kubernetes service on the specified port within the cluster. Other pods within the cluster can communicate with this server on the specified port.
+  2) **Target Port** is the port on which the service will send requests to, that your pod will be listening on. Your application in the container will need to be listening on this port also.
+  3) **Node Port** exposes a service externally to the cluster by means of the target nodes IP address and the NodePort. NodePort is the default setting if the port field is not specified.
 ### References
 [The Kubernetes Book](https://www.amazon.com/Kubernetes-Book-Version-November-2018-ebook/dp/B072TS9ZQZ/ref=sr_1_5?dchild=1&keywords=kubernetes&qid=1621828785&sr=8-5)
 [Kubernetes: Flannel network](https://blog.laputa.io/kubernetes-flannel-networking-6a1cb1f8ec7c)
+[Using Kubernetes Port, Target Port, Node Port](https://www.bmc.com/blogs/kubernetes-port-targetport-nodeport/)
