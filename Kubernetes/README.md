@@ -49,7 +49,14 @@ available outside of the cluster on a stable port.
   2) **Target Port** is the port on which the service will send requests to, that your pod will be listening on. Your application in the container will need to be listening on this port also.
   3) **Node Port** exposes a service externally to the cluster by means of the target nodes IP address and the NodePort. NodePort is the default setting if the port field is not specified.
 * Assume Pod in two different node, Node A and Node B. When Pod in Node A wants to communicate with Pod in Node B it will query the cluster DNS server (`/etc/resolv.conf`). Because there is no routes to Node B the packet will be sent to default gateway. When Node A receves the packet it won't have the routes either so it will be forward to default gateway. The Node's kernel will then create a trap and redirected the IP address of the Pod.
+* Kubernetes us
 ### References
-[The Kubernetes Book](https://www.amazon.com/Kubernetes-Book-Version-November-2018-ebook/dp/B072TS9ZQZ/ref=sr_1_5?dchild=1&keywords=kubernetes&qid=1621828785&sr=8-5)
-[Kubernetes: Flannel network](https://blog.laputa.io/kubernetes-flannel-networking-6a1cb1f8ec7c)
-[Using Kubernetes Port, Target Port, Node Port](https://www.bmc.com/blogs/kubernetes-port-targetport-nodeport/)
+[The Kubernetes Book](https://www.amazon.com/Kubernetes-Book-Version-November-2018-ebook/dp/B072TS9ZQZ/ref=sr_1_5?dchild=1&keywords=kubernetes&qid=1621828785&sr=8-5) </br>
+[Kubernetes: Flannel network](https://blog.laputa.io/kubernetes-flannel-networking-6a1cb1f8ec7c) </br>
+[Using Kubernetes Port, Target Port, Node Port](https://www.bmc.com/blogs/kubernetes-port-targetport-nodeport/) </br>
+
+### Kubernetes API links
+[Ivan's blog](https://iximiuz.com/en/posts/kubernetes-operator-pattern/) </br>
+[Kubernetes-style APIs of the Future - Daniel Smith, Google (Any Skill Level)](https://www.youtube.com/watch?v=S2U8GNHewpk) </br>
+[A Vision For API Machinery: Coming to Terms with the Platform We Built - Daniel Smith, Google](https://www.youtube.com/watch?v=u6weI_3WVTM) </br>
+[The Kubernetes Control Plane for Busy People Who Like Pictures - Daniel Smith, Google](https://www.youtube.com/watch?v=zCXiXKMqnuE) </br>
