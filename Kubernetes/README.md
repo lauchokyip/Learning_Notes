@@ -33,23 +33,20 @@ stateful applicatoin components, ***CronJobs*** are for short-lived tasks that n
   * Users (define different users that might have different levels of permissions on each cluster)
   * Contexts (bring together clusters and users under a friendly name. For example **Context** = deploy-prod, **User** = deploy, **Cluster** = prod)
 * **Pod** is a special type of container called a **pause container**. It's a collection of system resources that containers running inside of it will inherit and share
-* **Kubernetes does not provide any default network implementation, rather it only defines the model and leaves to other tools to implement it.**
-* **Deployment** provides self-healing, scalability and zero-downtime rolling-updates. It uses **ReplicaSets** to achieve that behind the scene. **A Deployment can only manage one Pod Template**
-* To achieve the desire state, ReplicaSets uses **reconciliation loops (aka control loops)** to constantly watching the pod.
-* **Service** has stable IP address, port, DNS and it also acts like a load balancer.
-* Each Service that is created, automatically get associated with **Endpoints** object. **Endpoints** object is a dynamic list of all of the healthy Pods on the cluster that mtach the Service's label selector
-* There are three types of Service
-  1) **ClusterIP** gives the Service a stable IP address internally within the cluster.
-It will not make the Service available outside of the cluster.
-  2) **NodePort** builds on top of ClusterIP and adds a cluster-wide TCP or UDP port. It makes the Service
-available outside of the cluster on a stable port.
-  3) **LoadBalancer** builds on top of NodePort and integrates with cloud-based load-balancers.
-  4) **External Name** used to direct traffic to services that exist outside of the Kubernetes cluster.
-* 1) **Pod** exposes the Kubernetes service on the specified port within the cluster. Other pods within the cluster can communicate with this server on the specified port.
+* **Kubernetes doess the Kubernetes service on the specified port within the cluster. Other pods within the cluster can communicate with this server on the specified port.
+
   2) **Target Port** is the port on which the service will send requests to, that your pod will be listening on. Your application in the container will need to be listening on this port also.
   3) **Node Port** exposes a service externally to the cluster by means of the target nodes IP address and the NodePort. NodePort is the default setting if the port field is not specified.
 * Assume Pod in two different node, Node A and Node B. When Pod in Node A wants to communicate with Pod in Node B it will query the cluster DNS server (`/etc/resolv.conf`). Because there is no routes to Node B the packet will be sent to default gateway. When Node A receves the packet it won't have the routes either so it will be forward to default gateway. The Node's kernel will then create a trap and redirected the IP address of the Pod.
-* Kubernetes us
+* Kubernetes uses cluster DNS as its service registry. It runs as a set of Pods with a Service object providing a stable network endpoint. The important components are:
+  1) Pods: Managed by the `coredns` deployment
+  2) Service: A ClusterIP Service called `kube-dns` listening on port 53 TCP/UDP
+  3) EndPoint: The Endpoint is called kube-dns
+* All storage on a Kubernetes cluster is called a **volume**
+* **Persistent Volumes** are how we map external storage onto a cluster whereas **Persistent Volume Claims** are like tickets that authorize applications to use a **Persistent Volumes**.
+* For **Persistent Volumes**, ***ReadWriteOnce*** can only be mounted as R/W by a single PVC. This is usually only supported by block storage. ***ReadWriteMany*** can only be mounted as R/W by a multiple PVC. This is usually only supported by file and object storage such as NFS. ***ReadOnlyMany*** allows multiple PVCs as R/O
+* **Storage Classes** make it so that you don't have to create Persistent Volumes manually. You create **Storage Classes** object and use a plugin to tie it to a particular type of storage. It will watch the API server that refers to its name. If matching PVCs appear, it will dynamically create the required volume on back-end storage system as well as the PV on Kubernetes.
+* 
 ### References
 [The Kubernetes Book](https://www.amazon.com/Kubernetes-Book-Version-November-2018-ebook/dp/B072TS9ZQZ/ref=sr_1_5?dchild=1&keywords=kubernetes&qid=1621828785&sr=8-5) </br>
 [Kubernetes: Flannel network](https://blog.laputa.io/kubernetes-flannel-networking-6a1cb1f8ec7c) </br>
