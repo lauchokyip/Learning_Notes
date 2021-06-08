@@ -46,7 +46,8 @@ stateful applicatoin components, ***CronJobs*** are for short-lived tasks that n
 * **Persistent Volumes** are how we map external storage onto a cluster whereas **Persistent Volume Claims** are like tickets that authorize applications to use a **Persistent Volumes**.
 * For **Persistent Volumes**, ***ReadWriteOnce*** can only be mounted as R/W by a single PVC. This is usually only supported by block storage. ***ReadWriteMany*** can only be mounted as R/W by a multiple PVC. This is usually only supported by file and object storage such as NFS. ***ReadOnlyMany*** allows multiple PVCs as R/O
 * **Storage Classes** make it so that you don't have to create Persistent Volumes manually. You create **Storage Classes** object and use a plugin to tie it to a particular type of storage. It will watch the API server that refers to its name. If matching PVCs appear, it will dynamically create the required volume on back-end storage system as well as the PV on Kubernetes.
-* 
+* You can inject **ConfigMap** into a container ***as environment variables***,***as arguments to container startup commands***,***as files in a volume***
+* The different between **StatefulSet** and **Deployment** is that **StatefulSet** guarantees ***predictable and persistent Pod names***, ***perdictable and persistent DNS hostnames***, and ***predictable and persistent volume bindings***. These three properties form the **state** of a pod.
 ### References
 [The Kubernetes Book](https://www.amazon.com/Kubernetes-Book-Version-November-2018-ebook/dp/B072TS9ZQZ/ref=sr_1_5?dchild=1&keywords=kubernetes&qid=1621828785&sr=8-5) </br>
 [Kubernetes: Flannel network](https://blog.laputa.io/kubernetes-flannel-networking-6a1cb1f8ec7c) </br>
