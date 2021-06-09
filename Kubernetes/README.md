@@ -33,8 +33,7 @@ stateful applicatoin components, ***CronJobs*** are for short-lived tasks that n
   * Users (define different users that might have different levels of permissions on each cluster)
   * Contexts (bring together clusters and users under a friendly name. For example **Context** = deploy-prod, **User** = deploy, **Cluster** = prod)
 * **Pod** is a special type of container called a **pause container**. It's a collection of system resources that containers running inside of it will inherit and share
-* **Kubernetes doess the Kubernetes service on the specified port within the cluster. Other pods within the cluster can communicate with this server on the specified port.
-
+* 1)**Port** exposes the Kubernetes service on the specified port within the cluster. Other pods within the cluster can communicate with this server on the specified port.
   2) **Target Port** is the port on which the service will send requests to, that your pod will be listening on. Your application in the container will need to be listening on this port also.
   3) **Node Port** exposes a service externally to the cluster by means of the target nodes IP address and the NodePort. NodePort is the default setting if the port field is not specified.
 * Assume Pod in two different node, Node A and Node B. When Pod in Node A wants to communicate with Pod in Node B it will query the cluster DNS server (`/etc/resolv.conf`). Because there is no routes to Node B the packet will be sent to default gateway. When Node A receves the packet it won't have the routes either so it will be forward to default gateway. The Node's kernel will then create a trap and redirected the IP address of the Pod.
@@ -48,6 +47,7 @@ stateful applicatoin components, ***CronJobs*** are for short-lived tasks that n
 * **Storage Classes** make it so that you don't have to create Persistent Volumes manually. You create **Storage Classes** object and use a plugin to tie it to a particular type of storage. It will watch the API server that refers to its name. If matching PVCs appear, it will dynamically create the required volume on back-end storage system as well as the PV on Kubernetes.
 * You can inject **ConfigMap** into a container ***as environment variables***,***as arguments to container startup commands***,***as files in a volume***
 * The different between **StatefulSet** and **Deployment** is that **StatefulSet** guarantees ***predictable and persistent Pod names***, ***perdictable and persistent DNS hostnames***, and ***predictable and persistent volume bindings***. These three properties form the **state** of a pod.
+* **Deleting StatefulSets** does not terminate pods in order.
 ### References
 [The Kubernetes Book](https://www.amazon.com/Kubernetes-Book-Version-November-2018-ebook/dp/B072TS9ZQZ/ref=sr_1_5?dchild=1&keywords=kubernetes&qid=1621828785&sr=8-5) </br>
 [Kubernetes: Flannel network](https://blog.laputa.io/kubernetes-flannel-networking-6a1cb1f8ec7c) </br>
