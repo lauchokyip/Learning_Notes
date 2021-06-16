@@ -52,6 +52,7 @@ stateful applicatoin components, ***CronJobs*** are for short-lived tasks that n
 [The Kubernetes Book](https://www.amazon.com/Kubernetes-Book-Version-November-2018-ebook/dp/B072TS9ZQZ/ref=sr_1_5?dchild=1&keywords=kubernetes&qid=1621828785&sr=8-5) </br>
 [Kubernetes: Flannel network](https://blog.laputa.io/kubernetes-flannel-networking-6a1cb1f8ec7c) </br>
 [Using Kubernetes Port, Target Port, Node Port](https://www.bmc.com/blogs/kubernetes-port-targetport-nodeport/) </br>
+[Kubernetes Volume Basics: emptyDir and PersistentVolume ](https://www.alibabacloud.com/blog/kubernetes-volume-basics-emptydir-and-persistentvolume_594834)
 
 ### Kubernetes API links
 [Ivan's blog](https://iximiuz.com/en/posts/kubernetes-operator-pattern/) </br>
