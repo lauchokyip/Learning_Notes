@@ -38,27 +38,16 @@ k3sup install --ip MASTER_IP  --user pi --k3s-channel stable
 **Make sure you have your ssh key copied to raspberry pi by doing `ssh-copy-id`** </br>
 7) To add the worker node, do
 ```
-k3sup install --ip MASTER_IP  --user pi --k3s-channel stable
+kubectl taint node kmaster  node-role.kubernetes.io/master:-
 ```
-8) When installing the master node, `k3sup` will output the instructions on how to configure the `kubectl`. I found it annoying having to not be able to just "switch the clusters" so I opened the `kubeconfig`
-file and copied that file to `.kube/config`. Adding the `user`, `cluster`, and `context` value (I changed from `default` to `k3s-rpi`) to the `.kube/config` file does the work
-9) Last but not least, I changed the `context` from `kubectl` by doing 
+8) To enable `kubectl` to work for external IP we need configure `kmaster.service`. Modify `ExecStart` so it looks like
 ```
-kubectl config use-context k3s-rpi
+ExecStart=/usr/local/bin/k3s \
+    server \
+	'--tls-san' \
+	'73.132.70.117' \
 ```
-10) That's it, I have my Raspberry Pi Kubernetes Clusters running now
+9) Restart the service
 ```
-lau@debian:~ $ kubectl get nodes
-NAME      STATUS   ROLES                  AGE     VERSION
-knode0    Ready    <none>                 5m32s   v1.21.1+k3s1
-kmaster   Ready    control-plane,master   16m     v1.21.1+k3s1
-
-
+sudo systemctl restart k3s
 ```
-```
-lau@debian:~ $ kubectl top node
-NAME      CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
-kmaster   479m         11%    786Mi           20%       
-knode0    218m         5%     298Mi           7%
-```
-
