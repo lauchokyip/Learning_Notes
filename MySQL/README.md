@@ -38,18 +38,18 @@ GRANT PRIVILEGES ON database.object TO 'username'@'hostname'
 ```
 SHOW databases;
 ```
-5) Describe table
+5) Describe table ***foo***
 ```
-DESCRIBE table;
+DESCRIBE foo;
 ```
-6) Insert data into the table
+6) Insert data into the table ***foo***
 ```
-INSERT INTO table(row1, row2, row3)
-  VALUES('foo1', 'foo2', 'foo3');
+INSERT INTO foo(row1, row2, row3)
+  VALUES('val1', 'val2', 'val3');
 ```
-7) Display data from the table
+7) Display data from the table ***foo***
 ```
-SELECT * FROM table;
+SELECT * FROM foo;
 ```
 8) Renaming table name ***foo*** to ***bar***
 ```
