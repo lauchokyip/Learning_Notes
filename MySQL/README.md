@@ -75,3 +75,29 @@ ALTER TABLE foo DROP bar;
 ```
 DROP table foo;
 ```
+14) Adding indexes to ***foo*** table
+```
+ALTER TABLE foo INDEX(row(20));
+```
+15）Doing everything in one shot (creating table ***foo*** with indexes)
+```
+CREATE TABLE foo (
+row1 VARCHAR(128),
+row2 VARCHAR(128),
+INDEX(row1(20)),
+INDEX(row2(20)) );
+)
+```
+16) Extract the column ***bar1,bar2*** from table ***foo***
+```
+SELECT bar1, bar2 FROM foo;
+```
+17) Delete a row from table ***foo***, row
+```
+DELETE FROM foo WHERE row='bar'
+```
+18) First Normal Form deals with duplicate data
+* There should be no repeating columns containing the same kind of data
+* All columns should contain a single value
+* There should be a primary key to uniquely identify each row
+Second Normal Form delas with redundancy across multiple rows.
