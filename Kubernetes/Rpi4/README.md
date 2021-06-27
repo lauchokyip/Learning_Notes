@@ -74,3 +74,6 @@ ExecStart=/usr/local/bin/k3s \
 ```
 sudo systemctl restart k3s
 ```
+
+## Really useful websites
+* https://greg.jeanmart.me/blog/
