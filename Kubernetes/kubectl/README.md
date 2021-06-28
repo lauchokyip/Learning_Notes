@@ -1,3 +1,3 @@
-* Main kubectl function starts [here](https://github.com/kubernetes/kubernetes/blob/ea0764452222146c47ec826977f49d7001b0ea8c/staging/src/k8s.io/kubectl/pkg/cmd/cmd.go#L527). This 
-is where most of the setup starts branch out.
-* Config flags will be added [here](https://github.com/kubernetes/kubernetes/blob/ea0764452222146c47ec826977f49d7001b0ea8c/staging/src/k8s.io/kubectl/pkg/cmd/cmd.go#L522)
+* Main kubectl function starts [here](https://github.com/kubernetes/kubernetes/blob/ea0764452222146c47ec826977f49d7001b0ea8c/staging/src/k8s.io/kubectl/pkg/cmd/cmd.go#L522-L525). This 
+is where most of the setup starts branching out. Notice that the `MatchVersionFlags` will wrap around Config Flags using [Delegate design pattern](https://en.wikipedia.org/wiki/Delegation_pattern) to check the version of kubectl and API server before proceed.
+* Config flags is very important because it implements [RestClientGetter](https://github.com/kubernetes/kubernetes/blob/master/staging/src/k8s.io/cli-runtime/pkg/genericclioptions/config_flags.go#L76) which will given use the function `ToRestConfig()`, `ToDiscoveryClient`, `ToRestMapper`and `ToRawKubeConfigLoader`. It will be added [here](https://github.com/kubernetes/kubernetes/blob/ea0764452222146c47ec826977f49d7001b0ea8c/staging/src/k8s.io/kubectl/pkg/cmd/cmd.go#L522)
