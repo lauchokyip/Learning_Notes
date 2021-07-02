@@ -11,7 +11,6 @@
 ## Introduction
 * After watching the [Kubecon talk](https://kccnceu2021.sched.com/event/iE2B/automating-your-home-with-k3s-and-home-assistant-eddie-zaneski-amazon-web-services-jeff-billimek-the-home-depot),
 I decided to buy two Raspberry Pi 4 for one master node and one child node. 
-* [Alex Ellist](https://github.com/alexellis) really make a lot of great open source software and blogs for how to set up Kubernetes on Raspberry Pi 4 so I mostly followed his blog to set it up.
 
 ## Setting up
 1) Firstly, Raspberry Pi has default `raspberrypi` as their hostname, so changing the hostname will make it easier to recognize master node and children node. We can do that by editing the file `/etc/hosts` and `/etc/hostname`
