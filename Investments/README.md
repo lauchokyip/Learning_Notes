@@ -25,4 +25,11 @@ the cost of borrowing money rises, too.
    * www.investors.com
    * https://finance.yahoo.com
    * www.investing.com
+* For dividend stocks,
+   * Date of declaration
+   * Date of execution
+   * Closing date
+   * Ex-dividend date
+   * Date of record
+   * Payment date
  
