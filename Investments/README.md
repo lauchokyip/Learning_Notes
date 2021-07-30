@@ -25,6 +25,11 @@ the cost of borrowing money rises, too.
    * www.investors.com
    * https://finance.yahoo.com
    * www.investing.com
+* For ETF,
+   * Dow Jones Industrial Average (DJIA): Large cap stocks
+   * Nasdaq Composite: Technology stocks
+   * S&P 500: 500 leading public traded companies
+   * Wilshire 500: wildest sampling of stocks
 * For dividend stocks,
    * Date of declaration
    * Date of execution
