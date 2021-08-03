@@ -37,4 +37,19 @@ the cost of borrowing money rises, too.
    * Ex-dividend date
    * Date of record
    * Payment date
- 
+* To check a broker's record,
+   * https://www.finra.org/#/IndividualList
+* Brokerage account
+   * cash account
+   * margin account
+   * option account
+* Asking important questions when listening to advices
+   * How does the analyst arrive at a rating
+   * What analytical approach is the anlyst using
+   * What is the analyst's track record
+   * How does the analyst treat important aspects of the company's performance, such as sales and earnings
+   * Is the industry that the company's in doing well?
+   * What research sources does the analyst cite?
+   * Is the analyst rational when citing a target price for a stock?
+   * Does the company that's being recommended have any ties to the analyst or the analyst's firm?
+   * What school of economic thought does the analyst adhere to?
