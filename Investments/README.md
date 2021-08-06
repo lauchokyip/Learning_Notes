@@ -53,3 +53,21 @@ the cost of borrowing money rises, too.
    * Is the analyst rational when citing a target price for a stock?
    * Does the company that's being recommended have any ties to the analyst or the analyst's firm?
    * What school of economic thought does the analyst adhere to?
+* Growth stocks tips:
+   * first look at the investing environment (politics, economics, demographics, and so on) and choose which industry will benefit.
+   * which industry will prosper accordingly, then I start to analyze and choose my stock
+   * consider investing in a company only if it makes a profit and if you understand how it makes that profit and from where it generates sales.
+   * compare the growth of a company with growth from other companies in the same industry or with the stock market in general.
+   * Consider companies with these characteristics:
+      * A strong brand
+      * High barriers to entry
+      * Research and development
+      * you want to see sales at least 10 percent higher than last year.
+      * ROE (Return on equity) = earning / equity
+   * Remeber:
+      * Pick a company that has strong fundamentals, including signs such as rising sales and earnings and low debt.
+      * Make sure that the company is in a growing industry.
+      * Fully participate in stocks that are benefiting from bullish market developments in the general economy.
+      * During a bear market or in bearish trends, switch more of your money out of growth stocks (such as technology) and into defensive stocks (such as utilities).
+      * Monitor your stocks. Hold onto stocks that continue to have growth potential,and sell those stocks with declining prospects
+      * 
