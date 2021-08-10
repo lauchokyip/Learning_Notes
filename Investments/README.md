@@ -70,4 +70,5 @@ the cost of borrowing money rises, too.
       * Fully participate in stocks that are benefiting from bullish market developments in the general economy.
       * During a bear market or in bearish trends, switch more of your money out of growth stocks (such as technology) and into defensive stocks (such as utilities).
       * Monitor your stocks. Hold onto stocks that continue to have growth potential,and sell those stocks with declining prospects
-      * 
+* Dividends are payouts to owners, whereas interest is a payment to a creditor.
+* some investment gurus describe companies that pay growing dividends as having stocks that are “better than bonds.”
