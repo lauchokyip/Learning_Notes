@@ -72,3 +72,9 @@ the cost of borrowing money rises, too.
       * Monitor your stocks. Hold onto stocks that continue to have growth potential,and sell those stocks with declining prospects
 * Dividends are payouts to owners, whereas interest is a payment to a creditor.
 * some investment gurus describe companies that pay growing dividends as having stocks that are “better than bonds.”
+* Dividend yield = Dividend income ÷ Stock investment
+* If you’re concerned about your dividend income’s safety, regularly watch the pay-out ratio. The maximum acceptable payout ratio should be 80 percent, and a good range is 50 to 70 percent. A payout ratio of 60 percent or lower is considered very safe (the lower the percentage, the safer the dividend).
+* When buying utility stock,
+   * The utility company’s financial condition
+   * The company’s dividend payout ratio
+   * The company’s geographic location
