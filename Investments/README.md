@@ -78,3 +78,10 @@ the cost of borrowing money rises, too.
    * The utility company’s financial condition
    * The company’s dividend payout ratio
    * The company’s geographic location
+* Real estate investment trust (REIT)
+   * a mutual fund that make its money buying, selling, and managing an investment portfolio of real estate investments.
+   * when looking for a REIT to invest in, analyze it the way you would analyze a property.
+* Business development companies (BDCs)
+   * Hybrid between a venture capital company and a mutual fund.
+   * Has finite number of shares.
+   * invests in small or mid-sized companies.
