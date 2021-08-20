@@ -59,3 +59,6 @@ stateful applicatoin components, ***CronJobs*** are for short-lived tasks that n
 [Kubernetes-style APIs of the Future - Daniel Smith, Google (Any Skill Level)](https://www.youtube.com/watch?v=S2U8GNHewpk) </br>
 [A Vision For API Machinery: Coming to Terms with the Platform We Built - Daniel Smith, Google](https://www.youtube.com/watch?v=u6weI_3WVTM) </br>
 [The Kubernetes Control Plane for Busy People Who Like Pictures - Daniel Smith, Google](https://www.youtube.com/watch?v=zCXiXKMqnuE) </br>
+
+### Question
+Look at what is pod token
