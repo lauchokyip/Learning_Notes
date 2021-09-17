@@ -99,8 +99,28 @@ kmaster   479m         11%    786Mi           20%
 knode0    218m         5%     298Mi           7%
 ```
 
+### Update
+To update, we have to update all the master nodes first and proceed to worker nodes next
+You will use the same commands to update the master node
+```
+$ export K3S_KUBECONFIG_MODE="644"
+$ export INSTALL_K3S_EXEC=" --no-deploy servicelb --no-deploy traefik --tls-san xx.xx.xx.xx"
+$ curl -sfL https://get.k3s.io | sh -
+```
+Same as worker node
+```
+$ export K3S_KUBECONFIG_MODE="644"
+$ export K3S_URL="https://192.168.0.22:6443"
+$ export K3S_TOKEN="K106edce2ad174510a840ff7e49680fc556f8830173773a1ec1a5dc779a83d4e35b::server:5a9b70a1f5bc02a7cf775f97fa912345"
+$ curl -sfL https://get.k3s.io | sh -
 
+```
+```
+NAME      STATUS   ROLES                  AGE   VERSION
+kmaster   Ready    control-plane,master   96d   v1.21.4+k3s1
+knode0    Ready    <none>                 96d   v1.21.4+k3s1
 
+```
 
 
 ## Really useful websites
