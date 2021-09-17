@@ -61,6 +61,11 @@ stateful applicatoin components, ***CronJobs*** are for short-lived tasks that n
 [The Kubernetes Control Plane for Busy People Who Like Pictures - Daniel Smith, Google](https://www.youtube.com/watch?v=zCXiXKMqnuE) </br>
 
 ### Good learning materials
-https://www.youtube.com/watch?v=90kZRyPcRZw
+https://www.youtube.com/watch?v=90kZRyPcRZw </br>
 https://dominik-tornow.medium.com/the-kubernetes-scheduler-cd429abac02f
+
+### Things I want to learn
+* Kubernetes Controller
+* Kubernetes Operator
+* Kubernetes CRD
 
