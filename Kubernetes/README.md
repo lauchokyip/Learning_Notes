@@ -64,6 +64,7 @@ stateful applicatoin components, ***CronJobs*** are for short-lived tasks that n
 https://www.youtube.com/watch?v=90kZRyPcRZw </br>
 https://dominik-tornow.medium.com/the-kubernetes-scheduler-cd429abac02f (How kubernertes scheduler work)
 https://programming.vip/docs/kube-proxy-source-code-analysis.html  (kube-proxy source code)
+https://caiorcferreira.github.io/post/the-kubernetes-dynamic-client/
 
 ### Things I want to learn
 * Kubernetes Controller
