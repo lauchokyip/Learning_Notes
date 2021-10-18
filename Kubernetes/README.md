@@ -1,4 +1,6 @@
 # Kubernetes Notes 
+![image](https://user-images.githubusercontent.com/42656921/137778405-909c4a67-d1ef-4c06-aa4a-9d76153afd3e.png)
+Image is from https://blog.heptio.com/core-kubernetes-jazz-improv-over-orchestration-a7903ea92ca
 * Kubernetes as an orchestrator. **Orchestrator is just an fancy work for a system that takes care of deploying and managing applications** 
 * Similar to OS which creates an abstraction between CPU, memory, storage and networking, Kubernetes creates an abstraction between cloud and center resources. 
 * Simple steps to run applications on Kubernetes cluster </br>
