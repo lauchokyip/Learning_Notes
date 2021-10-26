@@ -62,6 +62,32 @@ series of goroutines, use channels.
 	* If you are sharing access to a field in a struct, use mutexes.
 	* If you discover a critical performance issue when using channels and you cannot find any other way
 to fix the issue, modify your code to use a mutex.
+* Goroutine will only exit if the main routine exit, it will not stop if a function simply return
+```
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func test() {
+	go func() {
+		time.Sleep(5 * time.Millisecond)
+		fmt.Println("test")
+	}()
+	
+	return
+}
+
+func main() {
+
+	test()
+	fmt.Println("test1")
+	time.Sleep(10 * time.Millisecond)
+}
+
+```
 
 
 
