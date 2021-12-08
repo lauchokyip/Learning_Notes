@@ -85,3 +85,9 @@ the cost of borrowing money rises, too.
    * Hybrid between a venture capital company and a mutual fund.
    * Has finite number of shares.
    * invests in small or mid-sized companies.
+## Outside tips that I learn
+* JARS Money Management System
+![image](https://user-images.githubusercontent.com/42656921/145154166-b84952c9-8295-4fd5-936b-8e64977f3fb6.png)
+* Cyclical Outperforming, Defense Outperforming
+* Interest rate will increase next year
+
