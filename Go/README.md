@@ -89,6 +89,26 @@ func main() {
 
 ```
 
+#### Modules, Packages and Imports
+* Library management in Go is based around three concepts: ***repositories***,  ***modules***, and ***packages***.
+  * **Repositories** is just like Github repo
+  * **Module** is the root of a Go library or application, stored in a **repository**. It also consists one or more packages.
+* In Go, we usually use the path to the module repository where the module is found. For example, `github.com/lauchokyip/hello-world`
+```
+module github.com/lauchokyip/helloworld
+
+go 1.15
+
+require (
+  github.com/shopspring/decimal v1.2.0.
+)
+```
+* Every `go.mod` file starts with a `module` declaration. Followed by the minimum compatible version of Go. . `require` section lists the modules that your module depends on and the minimum version required for each one.
+* We need to specify an **import** path when importing from anywhere besides the standard library. 
+* [How do you structure your go apps](https://www.youtube.com/watch?v=1rxDzs0zgcE)
+  * Group by function
+
+  
 
 
 
