@@ -38,6 +38,7 @@ docker-build
 deploy
 test
 Continue to the next header to use your first Make target.
+
 ---
 
 👩🏾‍💻 Running your Application
@@ -53,6 +54,7 @@ This command may take a few minutes (particularly go vet may appear to hang!).
 While the command is running, navigate to main.go in the root directory (demo) of your Code editor tab. In this file, look at line 64 to see the NewManager function, which is what creates the operator application.
 
 ---
+
 💡 If you want to navigate to a specific place in the code editor quickly, type ctrl+p (cmd+p on macs) and enter the filename. Additionally, you can append a specific line number after a colon (e.g. main.go:64).
 
 In the list of options passed to this NewManager function (lines 65 to 70), you will see configuration for both a metrics and health probe endpoint. These will become visible in the output of the make run command.
