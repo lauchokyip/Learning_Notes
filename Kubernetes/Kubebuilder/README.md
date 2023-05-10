@@ -1,5 +1,6 @@
 ## Useful Guide
 https://github.com/kubernetes-sigs/kubebuilder/discussions/3283
+[Whole process of how a plugin is added](https://github.com/kubernetes-sigs/kubebuilder/issues/2765)
 
 ## Quick start
 
