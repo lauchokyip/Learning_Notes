@@ -1,3 +1,8 @@
+## Useful Guide
+https://github.com/kubernetes-sigs/kubebuilder/discussions/3283
+
+## Quick start
+
 A Kubernetes operator is an application that extends the functionality of the Kubernetes API. An operator automates the resource creation, configuration, and management for another application.
 
 Operators listen to changes of a specified Kubernetes resource rather than HTTP or GRPC requests like more traditional applications.
